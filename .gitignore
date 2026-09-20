@@ -1,0 +1,5 @@
+.gradle/
+.idea/
+MyFirstApp/.gradle/
+MyFirstApp/build/
+MyFirstApp/local.properties
