@@ -6,6 +6,11 @@ android {
     namespace = "com.example.currencybudgetapp"
     compileSdk = 37
 
+    buildFeatures {
+        viewBinding = true
+    }
+
+
     defaultConfig {
         applicationId = "com.example.currencybudgetapp"
         minSdk = 24
@@ -32,6 +37,10 @@ android {
 }
 
 dependencies {
+    implementation("com.google.android.material:material:1.11.0")
+    implementation("androidx.navigation:navigation-fragment-ktx:2.7.6")
+    implementation("androidx.navigation:navigation-ui-ktx:2.7.6")
+
     implementation(libs.androidx.activity.ktx)
     implementation(libs.androidx.appcompat)
     implementation(libs.androidx.constraintlayout)
