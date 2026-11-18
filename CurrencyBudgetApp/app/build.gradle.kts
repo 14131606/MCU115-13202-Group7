@@ -1,4 +1,6 @@
-﻿plugins {
+﻿// 專案建置與第三方套件依賴設定檔（負責引入 Retrofit 連線、Gson 解析與 Coroutines 非同步處理工具）
+
+plugins {
     alias(libs.plugins.android.application)
 }
 
@@ -9,7 +11,6 @@ android {
     buildFeatures {
         viewBinding = true
     }
-
 
     defaultConfig {
         applicationId = "com.example.currencybudgetapp"
@@ -55,4 +56,12 @@ dependencies {
     implementation("androidx.room:room-runtime:$roomVersion")
     annotationProcessor("androidx.room:room-compiler:$roomVersion")
     implementation("androidx.room:room-ktx:$roomVersion")
+
+    // Retrofit & Gson (匯率 API 連線與 JSON 解析)
+    implementation("com.squareup.retrofit2:retrofit:2.11.0")
+    implementation("com.squareup.retrofit2:converter-gson:2.11.0")
+
+    // Coroutines (背景執行網路請求)
+    implementation("org.jetbrains.kotlinx:kotlinx-coroutines-android:1.8.1")
+    implementation("androidx.lifecycle:lifecycle-runtime-ktx:2.8.7")
 }
