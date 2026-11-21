@@ -30,6 +30,7 @@ class MainActivity : AppCompatActivity() {
         navController.addOnDestinationChangedListener { _, destination, _ ->
             if (currentPage.isNotEmpty()) tracker.pageExit(currentPage)
             currentPage = resources.getResourceEntryName(destination.id)
+            tracker.logEvent("進入 $currentPage")
             tracker.pageEnter()
         }
     }
@@ -45,5 +46,6 @@ class MainActivity : AppCompatActivity() {
         super.onStop()
         if (currentPage.isNotEmpty()) tracker.pageExit(currentPage)
         Log.d("Usage", "開啟次數=${tracker.getOpenCount()}, 各頁面毫秒=${tracker.getAllPageTimes()}")
+        Log.d("Usage", "操作軌跡=${tracker.getEvents()}")
     }
 }
