@@ -38,4 +38,22 @@ class UsageTracker(context: Context) {
             .filterKeys { it.startsWith("page_") }
             .map { it.key.removePrefix("page_") to (it.value as Long) }
             .toMap()
+
+    // 記錄操作軌跡:例如 logEvent("按下新增記帳")
+    fun logEvent(event: String) {
+        val time = java.text.SimpleDateFormat("MM/dd HH:mm:ss", java.util.Locale.getDefault())
+            .format(java.util.Date())
+        val old = prefs.getString("events", "") ?: ""
+        // 每筆一行,最新的放最後,最多保留 100 筆
+        val lines = (if (old.isEmpty()) emptyList() else old.split("\n")) + "$time $event"
+        prefs.edit().putString("events", lines.takeLast(100).joinToString("\n")).apply()
+    }
+
+    // 取得所有操作軌跡(由舊到新)
+    fun getEvents(): List<String> {
+        val s = prefs.getString("events", "") ?: ""
+        return if (s.isEmpty()) emptyList() else s.split("\n")
+    }
+
+    fun clearEvents() = prefs.edit().remove("events").apply()
 }
