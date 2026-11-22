@@ -32,7 +32,13 @@ class SettingsFragment : Fragment() {
         }
 
         binding.rowFeedback.setOnClickListener {
-            findNavController().navigate(R.id.feedbackFragment)
+            val options = androidx.navigation.NavOptions.Builder()
+                .setEnterAnim(android.R.anim.fade_in)
+                .setExitAnim(android.R.anim.fade_out)
+                .setPopEnterAnim(android.R.anim.fade_in)
+                .setPopExitAnim(android.R.anim.fade_out)
+                .build()
+            findNavController().navigate(R.id.feedbackFragment, null, options)
         }
 
         binding.btnLogout.setOnClickListener {

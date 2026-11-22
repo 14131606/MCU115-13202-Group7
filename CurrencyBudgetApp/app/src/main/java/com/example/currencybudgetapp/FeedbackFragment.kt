@@ -54,6 +54,27 @@ class FeedbackFragment : Fragment() {
                 Toast.makeText(requireContext(), "找不到可用的 Email App", Toast.LENGTH_SHORT).show()
             }
         }
+
+        // 返回鍵:一律回到設定頁
+        requireActivity().onBackPressedDispatcher.addCallback(
+            viewLifecycleOwner,
+            object : androidx.activity.OnBackPressedCallback(true) {
+                override fun handleOnBackPressed() {
+                    val nav = androidx.navigation.fragment.NavHostFragment.findNavController(
+                        this@FeedbackFragment
+                    )
+                    // 設定頁在堆疊裡就直接退回去,不在的話就重新導向設定頁
+                    if (!nav.popBackStack(R.id.settingsFragment, false)) {
+                        nav.navigate(
+                            R.id.settingsFragment, null,
+                            androidx.navigation.NavOptions.Builder()
+                                .setPopUpTo(R.id.feedbackFragment, true)
+                                .build()
+                        )
+                    }
+                }
+            }
+        )
     }
 
     override fun onDestroyView() {
