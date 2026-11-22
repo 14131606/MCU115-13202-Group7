@@ -31,6 +31,17 @@
         android:text="查看使用紀錄  ›"
         android:textSize="16sp" />
 
+    <TextView
+        android:id="@+id/rowFeedback"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:background="?attr/selectableItemBackground"
+        android:clickable="true"
+        android:focusable="true"
+        android:padding="16dp"
+        android:text="意見回饋  ›"
+        android:textSize="16sp" />
+
     <Button
         android:id="@+id/btnLogout"
         android:layout_width="match_parent"

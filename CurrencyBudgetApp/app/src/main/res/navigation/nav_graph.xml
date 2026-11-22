@@ -29,4 +29,10 @@
         android:label="設定"
         tools:layout="@layout/fragment_settings" />
 
+    <fragment
+        android:id="@+id/feedbackFragment"
+        android:name="com.example.currencybudgetapp.FeedbackFragment"
+        android:label="意見回饋"
+        tools:layout="@layout/fragment_feedback" />
+
 </navigation>
