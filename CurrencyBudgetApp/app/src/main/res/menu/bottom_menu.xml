@@ -12,4 +12,9 @@
         android:id="@+id/exchangeFragment"
         android:icon="@drawable/ic_launcher_foreground"
         android:title="匯率" />
+
+    <item
+        android:id="@+id/settingsFragment"
+        android:icon="@drawable/ic_launcher_foreground"
+        android:title="設定" />
 </menu>
