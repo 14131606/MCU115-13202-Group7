@@ -23,4 +23,10 @@
         android:label="匯率"
         tools:layout="@layout/fragment_exchange" />
 
+    <fragment
+        android:id="@+id/settingsFragment"
+        android:name="com.example.currencybudgetapp.SettingsFragment"
+        android:label="設定"
+        tools:layout="@layout/fragment_settings" />
+
 </navigation>
