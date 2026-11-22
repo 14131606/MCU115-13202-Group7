@@ -7,6 +7,7 @@ import android.view.View
 import android.view.ViewGroup
 import androidx.fragment.app.Fragment
 import com.example.currencybudgetapp.databinding.FragmentSettingsBinding
+import androidx.navigation.fragment.findNavController
 
 class SettingsFragment : Fragment() {
     private var _binding: FragmentSettingsBinding? = null
@@ -28,6 +29,10 @@ class SettingsFragment : Fragment() {
         binding.rowUsage.setOnClickListener {
             UsageTracker(requireContext()).logEvent("開啟使用紀錄")
             startActivity(Intent(requireContext(), UsageStatsActivity::class.java))
+        }
+
+        binding.rowFeedback.setOnClickListener {
+            findNavController().navigate(R.id.feedbackFragment)
         }
 
         binding.btnLogout.setOnClickListener {
