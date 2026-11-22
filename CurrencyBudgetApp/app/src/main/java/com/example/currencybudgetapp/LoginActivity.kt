@@ -31,12 +31,17 @@ class LoginActivity : AppCompatActivity() {
             else Toast.makeText(this, "帳號或密碼錯誤", Toast.LENGTH_SHORT).show()
         }
         findViewById<Button>(R.id.btnToRegister).setOnClickListener {
-            startActivity(Intent(this, RegisterActivity::class.java))
+            startActivity(Intent(this, RegisterActivity::class.java), fadeOptions())
         }
     }
 
+    // 淡入淡出的轉場動畫
+    private fun fadeOptions() = android.app.ActivityOptions
+        .makeCustomAnimation(this, android.R.anim.fade_in, android.R.anim.fade_out)
+        .toBundle()
+
     private fun goMain() {
-        startActivity(Intent(this, MainActivity::class.java))
+        startActivity(Intent(this, MainActivity::class.java), fadeOptions())
         finish()
     }
 }
