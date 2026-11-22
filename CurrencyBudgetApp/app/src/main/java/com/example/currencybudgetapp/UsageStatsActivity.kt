@@ -24,6 +24,10 @@ class UsageStatsActivity : AppCompatActivity() {
         binding.tvLastOpen.text =
             "最後開啟:" + if (last == 0L) "尚無紀錄" else sdf.format(Date(last))
 
+        val prevClose = tracker.getPrevCloseTime()
+        binding.tvLastClose.text =
+            "上次結束:" + if (prevClose == 0L) "尚無紀錄" else sdf.format(Date(prevClose))
+
         val pages = tracker.getAllPageTimes()
         binding.tvPageTimes.text =
             if (pages.isEmpty()) "尚無紀錄"
@@ -38,6 +42,11 @@ class UsageStatsActivity : AppCompatActivity() {
             tracker.clearEvents()
             recreate() // 重新整理畫面
         }
+    }
+
+    override fun onStop() {
+        super.onStop()
+        UsageTracker(this).recordAppClose()
     }
 
     // 毫秒轉成「X 分 Y 秒」

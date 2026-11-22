@@ -44,6 +44,7 @@ class MainActivity : AppCompatActivity() {
     // App 到背景或關閉:結算目前頁面的停留時間
     override fun onStop() {
         super.onStop()
+        tracker.recordAppClose()
         if (currentPage.isNotEmpty()) tracker.pageExit(currentPage)
         Log.d("Usage", "開啟次數=${tracker.getOpenCount()}, 各頁面毫秒=${tracker.getAllPageTimes()}")
         Log.d("Usage", "操作軌跡=${tracker.getEvents()}")
