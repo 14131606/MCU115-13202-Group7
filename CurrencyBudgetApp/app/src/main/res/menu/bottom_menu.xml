@@ -2,19 +2,18 @@
 <menu xmlns:android="http://schemas.android.com/apk/res/android">
     <item
         android:id="@+id/homeFragment"
-        android:icon="@drawable/ic_launcher_foreground"
+        android:icon="@drawable/ic_home"
         android:title="首頁" />
     <item
         android:id="@+id/recordFragment"
-        android:icon="@drawable/ic_launcher_foreground"
+        android:icon="@drawable/ic_record"
         android:title="記帳" />
     <item
         android:id="@+id/exchangeFragment"
-        android:icon="@drawable/ic_launcher_foreground"
+        android:icon="@drawable/ic_exchange"
         android:title="匯率" />
-
     <item
         android:id="@+id/settingsFragment"
-        android:icon="@drawable/ic_launcher_foreground"
+        android:icon="@drawable/ic_settings"
         android:title="設定" />
 </menu>
